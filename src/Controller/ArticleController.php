@@ -2,7 +2,7 @@
 
 namespace App\Controller;
 
-use App\Service\KnpUIpsum;
+use KnpU\LoremIpsumBundle\KnpUIpsum;
 use App\Service\MarkdownHelper;
 use App\Service\SlackClient;
 use Psr\Log\LoggerInterface;
@@ -38,11 +38,9 @@ class ArticleController extends AbstractController
     /**
      * @Route("/news/{slug}", name="article_show")
      */
-    public function show($slug, MarkdownHelper $markdownHelper, SlackClient $slack)
+    public function show($slug, MarkdownHelper $markdownHelper)
     {
-        if ($slug === 'khaaaaaan') {
-            $slack->sendMessage('Kahn', 'Ah, Kirk, my old friend...');
-        }
+
 
         $comments = [
             'I ate a normal rock once. It did NOT taste like bacon!',
